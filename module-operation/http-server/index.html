@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http server</title>
+</head>
+<body>
+
+<p id="count"></p>
+
+<button onclick="incr(this)">点击自增Count</button>
+
+<script>
+    function incr() {
+        fetch('/api/count/incr').then(response => {
+            console.log(`click response ${response.json()}`)
+            reload();
+        })
+    }
+
+    function reload() {
+        fetch('/api/count').then(response => {
+            response.text().then(result => {
+                document.querySelector("#count").textContent = result
+            })
+        })
+    }
+
+    reload()
+</script>
+
+</body>
+</html>

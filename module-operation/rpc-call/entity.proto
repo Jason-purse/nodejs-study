@@ -1,0 +1,7 @@
+message User {
+  // 这里的序号指示它的位置 ...
+  required float id  = 1;
+  required string username = 2;
+  required string nickname = 3;
+  required string email = 4;
+}
